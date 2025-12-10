@@ -6,11 +6,4 @@ A simple file finder to search through large directories for certain file direct
 ## Installation
 
 Clone GitHub Repo:
-```
-```
-```git clone
-```
-```
-````
-````
 `git clone https://github.com/Cryptic-Crusaders/file-finder.git`
