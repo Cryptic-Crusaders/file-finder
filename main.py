@@ -1,3 +1,4 @@
+import time
 import glob as glob
 
 # Create logging file (Just writing to file instead of using logging package for simplicity)
@@ -10,6 +11,8 @@ def add_file_to_log(file):
 
 
 def find_files():
+    start_time = time.time()
+
     photos = glob.glob("**/*.png" or "**/*.jpg" or "**/*.jpeg" or "**/*.svg")
     videos = glob.glob("**/*.mp4" or "**/*.mov")
     programs = glob.glob("**/*.py" or "**/*.js")
@@ -34,6 +37,10 @@ def find_files():
     for audio in audios:
         print(audio)
         add_file_to_log(audio)
+
+    end_time = time.time()
+    time_taken = end_time - start_time
+    print(f"\nFiles found in {time_taken} seconds.")
 
 
 find_files()
