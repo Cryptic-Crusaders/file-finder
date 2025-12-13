@@ -14,14 +14,16 @@ def find_files():
     start_time = time.time()
     files_found = 0
 
-    photos = glob.glob("**/*.png" or "**/*.jpg" or "**/*.jpeg" or "**/*.svg")
-    videos = glob.glob("**/*.mp4" or "**/*.mov")
-    programs = glob.glob("**/*.py" or "**/*.js")
-    audios = glob.glob("**/*.mp3" or "**/*.wav")
+    photos = glob.glob(
+        "**/*.png" or "**/*.jpg" or "**/*.jpeg" or "**/*.svg", recursive=True
+    )
+    videos = glob.glob("**/*.mp4" or "**/*.mov", recursive=True)
+    programs = glob.glob("**/*.py" or "**/*.js", recursive=True)
+    audios = glob.glob("**/*.mp3" or "**/*.wav", recursive=True)
 
     print("\nPhotos:")
     with open("log_file.txt", "a") as log:
-        log.write('Photos:\n')
+        log.write("Photos:\n")
     for photo in photos:
         print(photo)
         add_file_to_log(photo)
@@ -29,7 +31,7 @@ def find_files():
 
     print("\nVideos:")
     with open("log_file.txt", "a") as log:
-        log.write('\n\nVideos:\n')
+        log.write("\n\nVideos:\n")
     for video in videos:
         print(video)
         add_file_to_log(video)
@@ -37,7 +39,7 @@ def find_files():
 
     print("\nPrograms:")
     with open("log_file.txt", "a") as log:
-        log.write('\n\nPrograms:\n')
+        log.write("\n\nPrograms:\n")
     for program in programs:
         print(program)
         add_file_to_log(program)
@@ -45,13 +47,13 @@ def find_files():
 
     print("\nAudio:")
     with open("log_file.txt", "a") as log:
-        log.write('\n\nAudio:\n')
+        log.write("\n\nAudio:\n")
     for audio in audios:
         print(audio)
         add_file_to_log(audio)
         files_found += 1
     with open("log_file.txt", "a") as log:
-        log.write('\n')
+        log.write("\n")
 
     end_time = time.time()
     time_taken = end_time - start_time
