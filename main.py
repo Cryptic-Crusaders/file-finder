@@ -18,8 +18,11 @@ def find_files():
         "**/*.png" or "**/*.jpg" or "**/*.jpeg" or "**/*.svg", recursive=True
     )
     videos = glob.glob("**/*.mp4" or "**/*.mov", recursive=True)
-    programs = glob.glob("**/*.py" or "**/*.js", recursive=True)
     audios = glob.glob("**/*.mp3" or "**/*.wav", recursive=True)
+    programs = glob.glob("**/*.py", recursive=True) + glob.glob(
+        "**/*.js", recursive=True
+    )
+    archives = glob.glob("**/*.zip" or "**/*.wav", recursive=True)
 
     print("\nPhotos:")
     with open("log_file.txt", "a") as log:
