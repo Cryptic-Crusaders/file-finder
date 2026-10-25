@@ -14,15 +14,33 @@ def find_files():
     start_time = time.time()
     files_found = 0
 
-    photos = glob.glob(
-        "**/*.png" or "**/*.jpg" or "**/*.jpeg" or "**/*.svg", recursive=True
+    # List of file extensions
+    photos = (
+        glob.glob("**/*.png", recursive=True)
+        + glob.glob("**/*.jpg", recursive=True)
+        + glob.glob("**/*.jpeg", recursive=True)
+        + glob.glob("**/*.svg", recursive=True)
     )
-    videos = glob.glob("**/*.mp4" or "**/*.mov", recursive=True)
-    audios = glob.glob("**/*.mp3" or "**/*.wav", recursive=True)
+
+    videos = glob.glob("**/*.mp4", recursive=True) + glob.glob(
+        "**/*.mov", recursive=True
+    )
+
+    audios = glob.glob("**/*.mp3", recursive=True) + glob.glob(
+        "**/*.wav", recursive=True
+    )
+
     programs = glob.glob("**/*.py", recursive=True) + glob.glob(
         "**/*.js", recursive=True
     )
-    archives = glob.glob("**/*.zip" or "**/*.wav", recursive=True)
+
+    archives = (
+        glob.glob("**/*.zip", recursive=True)
+        + glob.glob("**/*.rar", recursive=True)
+        + glob.glob("**/*.7z", recursive=True)
+        + glob.glob("**/*.tar", recursive=True)
+        + glob.glob("**/*.gz", recursive=True)
+    )
 
     print("\nPhotos:")
     with open("log_file.txt", "a") as log:
