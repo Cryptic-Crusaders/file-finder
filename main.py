@@ -8,6 +8,7 @@ log_file = open("log_file.txt", "w")
 def add_file_to_log(file):
     with open("log_file.txt", "a") as log:
         log.write(file)
+        log.write("\n")
 
 
 def find_files():
